@@ -11,7 +11,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <a href="{{ route('admin.products.create') }}" class="btn btn-default">
-                                <span class='glyphicon glyphicon-plus'></span>
+                                <span class='glyphicon glyphicon-plus'>Add</span>
                             </a>
                         </div>
                     </div>

@@ -50,7 +50,7 @@ class ProductsController extends Controller
 
         Product::create($form->getFieldValues()); # Criando o produto com os valores do formulario
 
-        return redirect()->routes('admin.products.index');
+        return redirect()->route('admin.products.index');
     }
 
     /**
