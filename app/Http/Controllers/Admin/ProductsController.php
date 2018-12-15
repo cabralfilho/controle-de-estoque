@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Forms\ProductForm;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Kris\LaravelFormBuilder\FormBuilder;
 
 class ProductsController extends Controller
 {
@@ -42,9 +44,13 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FormBuilder $formBuilder)
     {
-        //
+        $form = $formBuilder->create(ProductForm::class);
+
+        Product::create($form->getFieldValues()); # Criando o produto com os valores do formulario
+
+        return redirect()->routes('admin.products.index');
     }
 
     /**
