@@ -34,7 +34,9 @@
                                         <td>{{ $product->name }}</td>
                                         <td>R$ {{  number_format($product->value,2, ',', '.') }}</td>
                                         <td>
-                                           
+                                           <a href="{{ route('admin.products.edit',['id' => $product->id]) }}">
+                                               <span class="glyphicon glyphicon-pencil">Edit</span>
+                                           </a>
                                         </td>
                                     </tr>
                                 @endforeach

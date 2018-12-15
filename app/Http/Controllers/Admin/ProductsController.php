@@ -72,7 +72,14 @@ class ProductsController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $form = \FormBuilder::create(ProductForm::class, [
+            'method' => 'PUT',
+            'url' => route('admin.products.update', ['id' => $product->id]),
+            'model' => $product # Passando o objeto para que o formulario seja populado para edição
+        ]);
+        $title = "Editar produto";
+        return view('admin.products.save', compact('form','title'));
+
     }
 
     /**
@@ -82,9 +89,12 @@ class ProductsController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(FormBuilder $formBuilder, Product $product)
     {
-        //
+        $form = $formBuilder->create(ProductForm::class);
+        $product->fill($form->getFieldValues()); # Atualizando o produto
+        $product->save();
+        return redirect()->route('admin.products.index');
     }
 
     /**
