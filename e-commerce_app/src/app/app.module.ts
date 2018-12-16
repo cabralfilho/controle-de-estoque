@@ -11,6 +11,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {ProductListPage} from "../pages/product-list/product-list";
 import {ProductDetailPage} from "../pages/product-detail/product-detail";
+import {CartPage} from "../pages/cart/cart";
+import {LoginPage} from "../pages/login/login";
+import {CheckoutPage} from "../pages/checkout/checkout";
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import {ProductDetailPage} from "../pages/product-detail/product-detail";
     HomePage,
     ListPage,
     ProductListPage,
-    ProductDetailPage
+    ProductDetailPage,
+    CartPage,
+    LoginPage,
+    CheckoutPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,10 @@ import {ProductDetailPage} from "../pages/product-detail/product-detail";
     HomePage,
     ListPage,
     ProductListPage,
-    ProductDetailPage
+    ProductDetailPage,
+    CartPage,
+    LoginPage,
+    CheckoutPage
   ],
   providers: [
     StatusBar,
