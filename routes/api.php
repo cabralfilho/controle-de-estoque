@@ -18,3 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('products','Api\ProductsController@index');
+Route::get('products/{product}','Api\ProductsController@show');
+
+//Route::group(['middleware' => 'cors'], function () {
+//    Route::get('products','Api\ProductsController@index');
+//});

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import {ProductDetailPage} from "../product-detail/product-detail";
 
 /**
  * Generated class for the ProductListPage page.
@@ -30,6 +31,10 @@ export class ProductListPage {
         .toPromise().then((response)=> {
         this.products = response.json();
     });
+  }
+
+  goToProductDetails(product){
+    this.navCtrl.push(ProductDetailPage, {id: product.id})
   }
 
 }

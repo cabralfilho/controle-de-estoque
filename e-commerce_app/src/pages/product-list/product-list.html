@@ -15,7 +15,7 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let product of products">
+    <ion-item *ngFor="let product of products" (click)="goToProductDetails(product)">
       <h2>{{ product.name }}</h2>
       <p> R$ {{ product.value }}</p>
     </ion-item>
