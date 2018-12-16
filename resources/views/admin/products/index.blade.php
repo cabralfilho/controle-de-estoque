@@ -36,7 +36,21 @@
                                         <td>
                                            <a href="{{ route('admin.products.edit',['id' => $product->id]) }}">
                                                <span class="glyphicon glyphicon-pencil">Edit</span>
-                                           </a>
+                                           </a> |
+
+                                            <a href="{{ route('admin.products.destroy',['id' =>$product->id]) }}"
+                                                onclick="{{"event.preventDefault();document.getElementById('product-delete-form-{$product->id}').submit();"}}">
+                                                <span class="glyphicon glyphicon-pencil">Remove</span>
+                                            </a>
+                                            {!!
+                                                form(\FormBuilder::plain([
+                                                'id' => "product-delete-form-{$product->id}",
+                                                'method' => 'DELETE',
+                                                'url' => route('admin.products.destroy',['id' => $product->id]),
+                                                ]))
+                                             !!}
+
+
                                         </td>
                                     </tr>
                                 @endforeach
