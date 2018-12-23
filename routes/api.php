@@ -17,9 +17,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-    Route::get('products','Api\ProductsController@index');
-    Route::get('products/{product}','Api\ProductsController@show');
+//Route::post('login','Api\AuthenticateController@authenticate');
+Route::post('login', 'Api\AuthController@login');
 
-//Route::group(['middleware' => 'cors'], function () {
-//    Route::get('products','Api\ProductsController@index');
-//});
+//Protegendo rotas para autenticação com token
+Route::group(['middleware' => 'jwt.auth'], function () {
+    Route::get('logout', 'API\AuthController@logout');
+    Route::get('products', 'Api\ProductsController@index');
+    Route::get('products/{product}', 'Api\ProductsController@show');
+});
